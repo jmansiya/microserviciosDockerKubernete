@@ -1,0 +1,10 @@
+spring:
+  application:
+    name: Employee
+    
+  data:
+    mongodb:
+      uri: mongodb://localhost:2020/microserviceblog
+  #    host: localhost
+  #    port: 2020
+  #    database: microserviceblog
