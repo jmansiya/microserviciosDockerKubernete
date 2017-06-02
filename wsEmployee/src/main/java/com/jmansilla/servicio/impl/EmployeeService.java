@@ -3,20 +3,30 @@ package com.jmansilla.servicio.impl;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.domain.Example;
+import org.springframework.cloud.client.loadbalancer.LoadBalanced;
 import org.springframework.stereotype.Service;
+import org.springframework.web.client.RestTemplate;
 
 import com.jmansilla.modelo.Employee;
+import com.jmansilla.modelo.EmployeeCompleto;
+import com.jmansilla.modelo.Empresa;
 import com.jmansilla.modelo.QEmployee;
 import com.jmansilla.repositorio.EmployeeRepository;
 import com.jmansilla.servicio.IEmployeeService;
 import com.querydsl.core.types.Predicate;
+
 
 @Service
 public class EmployeeService implements IEmployeeService{
 
 	@Autowired
 	public EmployeeRepository repositorioEmployee;
+	
+	@Autowired
+	@LoadBalanced
+	private RestTemplate restTemplate;
+	
+	public String serviceUrl = "http://EMPRESA";
 	
 	public Employee insertarEmpleado(Employee newEmployee){
 		newEmployee = repositorioEmployee.insert(newEmployee);
@@ -58,5 +68,18 @@ public class EmployeeService implements IEmployeeService{
 		// TODO Auto-generated method stub
 		return repositorioEmployee.findAll();
 	}
+
+	@Override
+	public EmployeeCompleto getEmpleadoCompletoById(String id) {
+		// TODO Auto-generated method stub
+		Employee employee = repositorioEmployee.findOne(id);
+		Empresa empresa =  restTemplate.getForObject(serviceUrl + "/empresa/{name}", Empresa.class, employee.getEmpresa());
+		EmployeeCompleto employCompleto = new EmployeeCompleto();
+		employCompleto.setEmpresa(empresa);
+		employCompleto.setFullName(employee.getFullName());
+		
+		return employCompleto;
+	}
 	
 }
+

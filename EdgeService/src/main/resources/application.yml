@@ -21,3 +21,12 @@ zuul:
       path: /empresa/**
       service-id: EMPRESA
       strip-prefix: false
+      
+hystrix:
+  command:
+    default:
+      execution:
+        isolation:
+          strategy: THREAD
+          thread:
+            timeoutInMilliseconds: 10000  

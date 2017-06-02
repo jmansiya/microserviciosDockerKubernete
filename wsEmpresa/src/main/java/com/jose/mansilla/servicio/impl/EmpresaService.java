@@ -6,8 +6,10 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.jose.mansilla.modelo.Empresa;
+import com.jose.mansilla.modelo.QEmpresa;
 import com.jose.mansilla.repository.IEmpresaRepository;
 import com.jose.mansilla.servicio.IEmpresaService;
+import com.querydsl.core.types.Predicate;
 
 @Service
 public class EmpresaService implements IEmpresaService {
@@ -18,7 +20,11 @@ public class EmpresaService implements IEmpresaService {
 	@Override
 	public Empresa getEmpresa(String name) {
 		// TODO Auto-generated method stub
-		return repositorio.findByName(name);
+		QEmpresa qEmpresa = QEmpresa.empresa;
+		System.out.println("NAME : " + name);
+		Predicate predicado = qEmpresa.name.equalsIgnoreCase(name);
+		
+		return repositorio.findOne(predicado);
 	}
 
 	@Override
@@ -34,3 +40,5 @@ public class EmpresaService implements IEmpresaService {
 	}
 
 }
+
+
