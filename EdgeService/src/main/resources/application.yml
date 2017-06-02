@@ -1,0 +1,23 @@
+spring:
+  application:
+    name: EdgeService
+   
+eureka:
+  client:
+    registerWithEureka: false
+    serviceUrl:
+      defaultZone: http://localhost:1111/eureka/
+      
+server:
+  port: 8085
+  
+zuul:
+  routes:
+    employees:
+      path: /employee/**
+      service-id: EMPLOYEE
+      strip-prefix: false
+    empresas:
+      path: /empresa/**
+      service-id: EMPRESA
+      strip-prefix: false
