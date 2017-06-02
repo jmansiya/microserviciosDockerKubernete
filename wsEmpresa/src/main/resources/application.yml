@@ -1,0 +1,32 @@
+spring:
+  application:
+    name: Empresa
+    
+  data:
+    mongodb:
+      uri: mongodb://localhost:2020/microserviceblog
+
+server:
+  port: 0
+      
+eureka:
+  client:
+    serviceUrl:
+       defaultZone: http://localhost:1111/eureka/      
+  instance:
+    prefer-ip-address: true
+    metadata-map:
+      instanceId: ${spring.application.name}:${server.port}  
+      
+---
+
+spring:
+  profiles: docker
+  
+  data:
+    mongodb:
+      uri: mongodb://mongodb/microserviceblog
+#      host: mongodocker
+#      port: 2020
+#      database: microserviceblog
+      
