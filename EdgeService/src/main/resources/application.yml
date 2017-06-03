@@ -30,3 +30,15 @@ hystrix:
           strategy: THREAD
           thread:
             timeoutInMilliseconds: 10000  
+            
+---
+
+spring:
+  profiles: docker
+  
+  
+eureka:
+  client:
+    registerWithEureka: false
+    serviceUrl:
+      defaultZone: http://eureka-docker:1111/eureka/  
