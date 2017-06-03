@@ -22,11 +22,20 @@ eureka:
 
 spring:
   profiles: docker
-  
+ 
   data:
     mongodb:
       uri: mongodb://mongodb/microserviceblog
 #      host: mongodocker
 #      port: 2020
 #      database: microserviceblog
-      
+
+  
+eureka:
+  client:
+    serviceUrl:
+       defaultZone: http://eureka-docker:1111/eureka/      
+  instance:
+    prefer-ip-address: true
+    metadata-map:
+      instanceId: ${spring.application.name}:${server.port}      
