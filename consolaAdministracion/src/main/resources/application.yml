@@ -1,0 +1,27 @@
+spring:
+  application:
+    name: ConsolaAdministracion
+    
+server:
+  port: 8099
+      
+eureka:
+  client:
+    serviceUrl:
+       defaultZone: http://localhost:1111/eureka/     
+    register-with-eureka: false
+    
+---
+
+spring:
+  profiles: docker
+ 
+  data:
+    mongodb:
+      uri: mongodb://mongodb/microserviceblog
+  
+eureka:
+  client:
+    serviceUrl:
+       defaultZone: http://eureka-docker:1111/eureka/      
+    register-with-eureka: false
