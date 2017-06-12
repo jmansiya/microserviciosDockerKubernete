@@ -28,3 +28,11 @@ services:
       - 8085:8085
     environment:
      - SPRING_PROFILES_ACTIVE=docker
+  consolaAdministracion:
+    image: josemansilla/consola-administracion:0.0.1
+    links:
+      - eurekaservice:eureka-docker
+    ports:
+      - 8099:8099
+    environment:
+     - SPRING_PROFILES_ACTIVE=docker
