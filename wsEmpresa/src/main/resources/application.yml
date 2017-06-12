@@ -8,6 +8,15 @@ spring:
 
 server:
   port: 0
+  
+endpoints:
+  actuator:
+    enabled: true
+    sensitive: false
+
+management:
+  security:
+    enabled: false
       
 eureka:
   client:
