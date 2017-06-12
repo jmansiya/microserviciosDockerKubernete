@@ -6,6 +6,15 @@ spring:
     mongodb:
       uri: mongodb://localhost:2020/microserviceblog
 
+endpoints:
+  actuator:
+    enabled: true
+    sensitive: false
+
+management:
+  security:
+    enabled: false
+
 server:
   port: 0
       
