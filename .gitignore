@@ -1,4 +1,3 @@
 
 .DS_Store
-nod_modules/*
-node_modules/.bin/coffee
+/node_modules
