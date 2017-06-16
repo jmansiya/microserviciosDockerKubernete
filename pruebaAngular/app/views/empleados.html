@@ -1,0 +1,50 @@
+<div>
+    <h1>EMPLEADOS</h1>
+    <div ng-show="isAnadir === false" style="align-content: flex-end">
+        <button ng-click="isAnadir=true">Añadir</button>    
+    </div>
+    <div ng-show="isAnadir === true" style="padding-bottom: 25px;">
+        <h1>AÑADIR NUEVO EMPLEADO</h1>
+        <div style="padding-bottom: 15px;"><span style="margin-right: 75px;">Nombre: </span><input type="text" name="nombre" ng-model="empleado.name"/></div>
+        <div style="padding-bottom: 15px;"><span style="margin-right: 75px;">Edad: </span><input type="text" name="edad" ng-model="empleado.edad"/></div>
+        <div style="padding-bottom: 15px;"><span style="margin-right: 75px;">Email: </span><input type="text" name="email" ng-model="empleado.email"/></div>
+        <div style="padding-bottom: 15px;"><span style="margin-right: 75px;">Nombre completo: </span><input type="text" name="fullname" ng-model="empleado.fullName"/></div>
+        <div style="padding-bottom: 15px;"><span style="margin-right: 75px;">Email manager: </span><input type="text" name="managerEmail" ng-model="empleado.managerEmail"/></div>
+        <div style="padding-bottom: 15px;"><span style="margin-right: 75px;">Empresa: </span><input type="text" name="empresa" ng-model="empleado.empresa"/></div>
+
+        <button ng-click="add();">Añadir</button>
+        <button ng-click="isAnadir=false;">Cancelar</button>
+    </div>
+    <div ng-show="isAnadir === false">
+        <table class="table table-striped table-condensed table-hover">
+            <thead>
+                <tr>
+                    <th custom-sort sort="sort">
+                        Nombre
+                    </th>
+                    <th custom-sort sort="sort">
+                        Edad
+                    </th>
+                    <th custom-sort sort="sort">
+                        Email
+                    </th>
+                    <th custom-sort sort="sort">
+                        Manager Email
+                    </th>
+                    <th custom-sort sort="sort">
+                        Empresa
+                    </th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr ng-repeat="item in empleados">
+                    <td>{{ item.fullName }}</td>
+                    <td>{{ item.edad }}</td>
+                    <td>{{ item.email }}</td>
+                    <td>{{ item.managerEmail }}</td>
+                    <td>{{ item.empresa }}</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
