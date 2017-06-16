@@ -1,0 +1,21 @@
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  name: eureka-docker
+  labels:
+    run: eureka-docker 
+spec:
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        run: eureka-docker
+    spec:
+      containers:
+      - image: josemansilla/microservice_registration:0.0.1-SNAPSHOT
+        name: eureka-docker
+        ports:
+        - containerPort: 1111
+          protocol: TCP
+        resources: {}
+      restartPolicy: Always

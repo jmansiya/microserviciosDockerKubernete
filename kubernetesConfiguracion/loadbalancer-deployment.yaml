@@ -1,0 +1,25 @@
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  creationTimestamp: null
+  name: loadbalancer
+spec:
+  replicas: 1
+  strategy: {}
+  template:
+    metadata:
+      creationTimestamp: null
+      labels:
+        io.kompose.service: loadbalancer
+    spec:
+      containers:
+      - env:
+        - name: SPRING_PROFILES_ACTIVE
+          value: docker
+        image: josemansilla/edgeservice:0.0.1
+        name: loadbalancer
+        ports:
+        - containerPort: 8085
+        resources: {}
+      restartPolicy: Always
+status: {}
