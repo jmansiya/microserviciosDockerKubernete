@@ -2,7 +2,7 @@
   <modelVersion>4.0.0</modelVersion>
   <groupId>net.jose.mansilla</groupId>
   <artifactId>microservice_registration</artifactId>
-  <version>0.0.1-SNAPSHOT</version>
+  <version>1.0.0-SNAPSHOT</version>
   <name>microservice-registration</name>
   
    <properties>
@@ -103,4 +103,5 @@
 	     </plugin>
   	</plugins>
   </build>
+  <description>Servicio Eureka para registro de microservicios de spring boot.</description>
 </project>

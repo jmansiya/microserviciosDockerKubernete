@@ -8,16 +8,11 @@ eureka:
     fetch-registry: false
     
 server:
-  port: 1111
+  port: 8075
 
 spring:
-  thymeleaf:
-    enabled: false
   application:
     name: eureka-server
       
 logging:  
   file: logs/${spring.application.name}.log
-  level:
-    org.springframework.cloud: 'DEBUG'
-    com.atsistemas: 'DEBUG'      
