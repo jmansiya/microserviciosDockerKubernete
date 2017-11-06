@@ -7,9 +7,9 @@
   </parent>
   <groupId>com.jmansilla</groupId>
   <artifactId>edgeservice</artifactId>
-  <version>0.0.1</version>
+  <version>1.0.0</version>
   <name>Servicio Zuul </name>
-  <description>Balanceador arquitectura NetFlix	</description>
+  <description>Balanceador arquitectura NetFlix Zuul. No utilizará rouete, se valdrá de los nombres de los proyectos registrados en eureka.</description>
   <dependencies>
   	<dependency>
   		<groupId>org.springframework.cloud</groupId>

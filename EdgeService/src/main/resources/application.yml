@@ -6,22 +6,15 @@ eureka:
   client:
     registerWithEureka: false
     serviceUrl:
-      defaultZone: http://localhost:1111/eureka/
+      defaultZone: http://localhost:8075/eureka/
       
 server:
   port: 8085
-  
+ 
 zuul:
-  routes:
-    employees:
-      path: /employee/**
-      service-id: EMPLOYEE
-      strip-prefix: false
-    empresas:
-      path: /empresa/**
-      service-id: EMPRESA
-      strip-prefix: false
-      
+  prefix: /api/rest
+  strip-prefix: false
+
 hystrix:
   command:
     default:
@@ -36,9 +29,8 @@ hystrix:
 spring:
   profiles: docker
   
-  
 eureka:
   client:
     registerWithEureka: false
     serviceUrl:
-      defaultZone: http://eureka-docker:1111/eureka/  
+      defaultZone: http://eureka-docker:8075/eureka/  
