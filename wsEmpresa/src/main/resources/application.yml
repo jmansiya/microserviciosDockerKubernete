@@ -4,8 +4,14 @@ spring:
     
   data:
     mongodb:
-      uri: mongodb://localhost:2020/microserviceblog
+      uri: mongodb://localhost:27017/microserviceblog
 
+  metrics:
+    export:
+      delay-millis: 5000
+      enabled: true
+      includes: heap.used,heap.committed,mem,mem.free,threads,systemload.average,counter.status.2*.*,counter.status.5*.*
+ 
 server:
   port: 0
   
@@ -17,7 +23,19 @@ endpoints:
 management:
   security:
     enabled: false
-      
+  metrics:
+    export:
+      influx:
+        auto-create-db: true
+        batch-size: 10
+        db: jose
+        enabled: true
+        num-threads: 2
+        password: root
+        step: 1m
+        uri: http://localhost:8086
+        user-name: root
+        
 eureka:
   client:
     serviceUrl:
@@ -25,7 +43,7 @@ eureka:
   instance:
     prefer-ip-address: true
     metadata-map:
-      instanceId: ${spring.application.name}:${server.port}  
+      instanceId: ${spring.application.name}:${server.port}    
       
 ---
 

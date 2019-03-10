@@ -40,6 +40,22 @@
   		<groupId>org.springframework.boot</groupId>
   		<artifactId>spring-boot-starter-actuator</artifactId>
   	</dependency>
+  	<!-- https://mvnrepository.com/artifact/io.micrometer/micrometer-registry-influx -->
+	<dependency>
+	    <groupId>io.micrometer</groupId>
+	    <artifactId>micrometer-registry-influx</artifactId>
+	    <version>1.0.0</version>
+	</dependency>	  
+	<dependency>
+	    <groupId>io.micrometer</groupId>
+	    <artifactId>micrometer-spring-legacy</artifactId>
+	    <version>1.0.0</version>
+	</dependency>	
+	<dependency>
+	    <groupId>org.influxdb</groupId>
+	    <artifactId>influxdb-java</artifactId>
+	    <version>2.15</version>
+	</dependency>
   </dependencies>
   <dependencyManagement>
   	<dependencies>

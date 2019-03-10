@@ -21,11 +21,17 @@ public class EmpresaController {
 	
 	@RequestMapping(method = RequestMethod.POST)
 	public Empresa insertarEmpresa(@RequestBody Empresa empresa){
+		for (int i = 0; i < 100; i++) {
+			
+		}
 		return empresaService.insertar(empresa);		
 	}
 	
 	@RequestMapping(method = RequestMethod.GET)
 	public List<Empresa> getEmpresas(){
+		for (int i = 0; i < 50; i++) {
+			
+		}
 		return empresaService.getEmpresas();
 	}
 	

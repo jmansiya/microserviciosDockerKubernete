@@ -4,8 +4,19 @@ spring:
     
   data:
     mongodb:
-      uri: mongodb://localhost:2020/microserviceblog
+      uri: mongodb://localhost:27017/microserviceblog
 
+  metrics:
+    export:
+      delay-millis: 5000
+      enabled: true
+      includes: heap.used,heap.committed,mem,mem.free,threads,systemload.average,counter.status.2*.*,counter.status.5*.*
+      #,datasource.primary.active,datasource.primary.usage,gauge.response.employee
+
+logging:
+  level:
+    org.influxdb: DEBUG
+    
 endpoints:
   actuator:
     enabled: true
@@ -26,6 +37,7 @@ eureka:
     prefer-ip-address: true
     metadata-map:
       instanceId: ${spring.application.name}:${server.port}  
+      
       
 ---
 

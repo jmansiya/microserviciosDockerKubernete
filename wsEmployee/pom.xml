@@ -54,13 +54,17 @@
   		<groupId>org.springframework.boot</groupId>
   		<artifactId>spring-boot-starter-actuator</artifactId>
   	</dependency>
+  	<dependency>
+	    <groupId>org.influxdb</groupId>
+	    <artifactId>influxdb-java</artifactId>
+	    <version>2.15</version>
+	</dependency>
   </dependencies>
   <build>
   	<plugins>
   		<plugin>
   			<groupId>org.springframework.boot</groupId>
   			<artifactId>spring-boot-maven-plugin</artifactId>
-  			<version>1.5.3.RELEASE</version>
   		</plugin>
   		<!-- Plugin para generar clases Qxx para utilizar queryDSL -->
   		<plugin>

@@ -1,5 +1,6 @@
 package com.jmansilla;
 
+import org.apache.log4j.Logger;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -23,4 +24,5 @@ public class Application {
 	RestTemplate restTemplate() {
 		return new RestTemplate();
 	}
+	
 }
